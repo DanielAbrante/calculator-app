@@ -45,7 +45,8 @@ export function App() {
     switch (actualOperator) {
       case "sum":
         array = output.split("+");
-        result = array.reduce((prevValue, actual) => parseInt(prevValue) + parseInt(actual), 0);
+        result = parseInt(array[0]) + parseInt(array[1]);
+        // result = array.reduce((prevValue, actual) => parseInt(prevValue) + parseInt(actual), 0);
 
         setOutput(result.toString());
         setIsOperatorInserted(false);
@@ -53,9 +54,7 @@ export function App() {
       case "subtraction":
         array = output.split("-");
 
-        console.log(array);
-
-        result = array.reduce((prevValue, actual) => parseInt(prevValue) - parseInt(actual), 0);
+        result = parseInt(array[0]) - parseInt(array[1]);
 
         setOutput(result.toString());
         setIsOperatorInserted(false);
