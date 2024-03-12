@@ -25,6 +25,18 @@ const reducer = (prevState, action) => {
       return {
         ...prevState, output: result.toString()
       }
+    case "multiplication":
+      array = prevState.output.split("*");
+      result = parseInt(array[0]) * parseInt(array[1]);
+      return {
+        ...prevState, output: result.toString()
+      }
+    case "division":
+      array = prevState.output.split("/");
+      result = parseInt(array[0]) / parseInt(array[1]);
+      return {
+        ...prevState, output: result.toString()
+      }
     case "numeric_digit":
       newOutput = action.payload;
       return {
@@ -99,6 +111,8 @@ export function App() {
       <div>
         <button onClick={handleOperatorClicked} value={"sum"}>+</button>
         <button onClick={handleOperatorClicked} value={"subtraction"}>-</button>
+        <button onClick={handleOperatorClicked} value={"multiplication"}>*</button>
+        <button onClick={handleOperatorClicked} value={"division"}>/</button>
       </div>
 
       <div>
