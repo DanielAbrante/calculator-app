@@ -1,5 +1,12 @@
 import { useReducer, useState } from "react";
 
+const operators: InterfaceOperators = {
+  sum: "+",
+  subtraction: "-",
+  multiplication: "*",
+  division: "/",
+}
+
 const reducer = (prevState, action) => {
   let newOutput: string = "";
   let array: string[] = [];
@@ -24,16 +31,10 @@ const reducer = (prevState, action) => {
         ...prevState, output: prevState.output.concat(newOutput)
       }
     case "operator_digit":
-      if (action.payload === "sum") {
-        newOutput = "+";
-      } else if (action.payload === "subtraction") {
-        newOutput = "-";
-      } else {
-        newOutput = action.payload;
-      }
+      const symbol = Object.entries(operators).find(item => item[0] == action.payload)[1];
 
       return {
-        ...prevState, output: prevState.output.concat(newOutput)
+        ...prevState, output: prevState.output.concat(symbol)
       }
     default:
       break;
@@ -43,7 +44,7 @@ const reducer = (prevState, action) => {
 
 export function App() {
   const [state, dispatch] = useReducer(reducer, { output: "" });
-  const [isOperatorInserted, setIsOperatorInserted] = useState(false);
+  const [isOperatorInserted, setIsOperatorInserted] = useState<boolean>(false);
   const [actualOperator, setActualOperator] = useState<string>("");
 
   const handleNumberClicked = (event: React.MouseEvent<HTMLButtonElement>) => {
