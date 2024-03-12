@@ -64,9 +64,11 @@ export function App() {
 
     if (value === "0" && state.output.length === 0) return;
 
-    const firstDigitAfterOperator = state.output.indexOf("+");
-
     if (isOperatorInserted) {
+      const symbol = Object.entries(operators).find(item => item[0] == actualOperator)[1];
+
+      const firstDigitAfterOperator = state.output.indexOf(symbol);
+
       if (!state.output[firstDigitAfterOperator + 1] && value === "0") return;
     }
 
