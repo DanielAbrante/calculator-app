@@ -16,25 +16,26 @@ const reducer = (prevState, action) => {
   switch (action.type) {
     case "sum":
       array = prevState.output.split("+");
-      result = parseInt(array[0]) + parseInt(array[1]);
+
+      result = parseFloat(array[0]) + parseFloat(array[1]);
       return {
         ...prevState, output: result.toString()
       }
     case "subtraction":
       array = prevState.output.split("-");
-      result = parseInt(array[0]) - parseInt(array[1]);
+      result = parseFloat(array[0]) - parseFloat(array[1]);
       return {
         ...prevState, output: result.toString()
       }
     case "multiplication":
       array = prevState.output.split("*");
-      result = parseInt(array[0]) * parseInt(array[1]);
+      result = parseFloat(array[0]) * parseFloat(array[1]);
       return {
         ...prevState, output: result.toString()
       }
     case "division":
       array = prevState.output.split("/");
-      result = parseInt(array[0]) / parseInt(array[1]);
+      result = parseFloat(array[0]) / parseFloat(array[1]);
       return {
         ...prevState, output: result.toString()
       }
@@ -47,6 +48,10 @@ const reducer = (prevState, action) => {
 
       return {
         ...prevState, output: newOutput,
+      }
+    case "dot":
+      return {
+        ...prevState, output: prevState.output.concat(".")
       }
     case "numeric_digit":
       newOutput = action.payload;
@@ -69,6 +74,7 @@ export function App() {
   const [state, dispatch] = useReducer(reducer, { output: "" });
   const [isOperatorInserted, setIsOperatorInserted] = useState<boolean>(false);
   const [actualOperator, setActualOperator] = useState<string>("");
+  const [isDotInserted, setIsDotInserted] = useState<boolean>(false);
 
   const handleNumberClicked = (event: React.MouseEvent<HTMLButtonElement>) => {
     const value = event.currentTarget.value;
@@ -94,6 +100,7 @@ export function App() {
 
     setIsOperatorInserted(true);
     setActualOperator(value);
+    setIsDotInserted(false);
 
     dispatch({ type: "operator_digit", payload: value });
   }
@@ -110,6 +117,21 @@ export function App() {
 
   const handleDel = () => {
     dispatch({ type: "del" })
+  }
+
+  const handleDot = () => {
+    if (state.output.length === 0) return;
+
+    const output_length = state.output.length;
+
+    if (state.output[output_length - 1] === ".") return;
+
+    if (isDotInserted) return;
+    else {
+      dispatch({ type: "dot" });
+      setIsDotInserted(true);
+    }
+
   }
 
   return (
@@ -140,7 +162,7 @@ export function App() {
           <button className={styles.multiplication} onClick={handleOperatorClicked} value={"multiplication"}>x</button>
           <button className={styles.division} onClick={handleOperatorClicked} value={"division"}>/</button>
           <button onClick={handleDel} className={styles.del}>DEL</button>
-          <button className={styles.dot}>.</button>
+          <button onClick={handleDot} className={styles.dot}>.</button>
 
           <button onClick={handleReset} className={styles.reset}>RESET</button>
           <button className={styles.calculate} onClick={calculateExpression} value={"calculate"}>=</button>
