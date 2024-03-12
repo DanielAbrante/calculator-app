@@ -1,3 +1,4 @@
+import styles from "./App.module.css";
 import { useReducer, useState } from "react";
 
 const operators: InterfaceOperators = {
@@ -36,6 +37,16 @@ const reducer = (prevState, action) => {
       result = parseInt(array[0]) / parseInt(array[1]);
       return {
         ...prevState, output: result.toString()
+      }
+    case "reset":
+      return {
+        ...prevState, output: "",
+      }
+    case "del":
+      newOutput = prevState.output.slice(0, -1);
+
+      return {
+        ...prevState, output: newOutput,
       }
     case "numeric_digit":
       newOutput = action.payload;
@@ -93,34 +104,48 @@ export function App() {
     setIsOperatorInserted(false);
   }
 
+  const handleReset = () => {
+    dispatch({ type: "reset" })
+  }
+
+  const handleDel = () => {
+    dispatch({ type: "del" })
+  }
+
   return (
     <main>
-      <output>{state.output}</output>
+      <article>
+        <header>
+          <h1>calc</h1>
+          <span>THEME</span>
+        </header>
 
-      <div>
-        <button onClick={handleNumberClicked} value={0}>0</button>
-        <button onClick={handleNumberClicked} value={1}>1</button>
-        <button onClick={handleNumberClicked} value={2}>2</button>
-        <button onClick={handleNumberClicked} value={3}>3</button>
-        <button onClick={handleNumberClicked} value={4}>4</button>
-        <button onClick={handleNumberClicked} value={5}>5</button>
-        <button onClick={handleNumberClicked} value={6}>6</button>
-        <button onClick={handleNumberClicked} value={7}>7</button>
-        <button onClick={handleNumberClicked} value={8}>8</button>
-        <button onClick={handleNumberClicked} value={9}>9</button>
-      </div>
+        <output>{state.output}</output>
 
-      <div>
-        <button onClick={handleOperatorClicked} value={"sum"}>+</button>
-        <button onClick={handleOperatorClicked} value={"subtraction"}>-</button>
-        <button onClick={handleOperatorClicked} value={"multiplication"}>*</button>
-        <button onClick={handleOperatorClicked} value={"division"}>/</button>
-      </div>
+        <div className={styles.operatorsContainer}>
+          <button className={styles.zero} onClick={handleNumberClicked} value={0}>0</button>
+          <button onClick={handleNumberClicked} value={7}>7</button>
+          <button onClick={handleNumberClicked} value={8}>8</button>
+          <button onClick={handleNumberClicked} value={9}>9</button>
+          <button onClick={handleNumberClicked} value={4}>4</button>
+          <button onClick={handleNumberClicked} value={5}>5</button>
+          <button onClick={handleNumberClicked} value={6}>6</button>
+          <button onClick={handleNumberClicked} value={1}>1</button>
+          <button onClick={handleNumberClicked} value={2}>2</button>
+          <button onClick={handleNumberClicked} value={3}>3</button>
 
-      <div>
-        <button onClick={calculateExpression} value={"calculate"}>=</button>
-      </div>
 
+          <button className={styles.sum} onClick={handleOperatorClicked} value={"sum"}>+</button>
+          <button className={styles.subtraction} onClick={handleOperatorClicked} value={"subtraction"}>-</button>
+          <button className={styles.multiplication} onClick={handleOperatorClicked} value={"multiplication"}>x</button>
+          <button className={styles.division} onClick={handleOperatorClicked} value={"division"}>/</button>
+          <button onClick={handleDel} className={styles.del}>DEL</button>
+          <button className={styles.dot}>.</button>
+
+          <button onClick={handleReset} className={styles.reset}>RESET</button>
+          <button className={styles.calculate} onClick={calculateExpression} value={"calculate"}>=</button>
+        </div>
+      </article>
     </main>
   )
 }
