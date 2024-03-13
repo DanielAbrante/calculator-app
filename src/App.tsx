@@ -71,7 +71,7 @@ const reducer = (prevState, action) => {
 
 
 export function App() {
-  const [state, dispatch] = useReducer(reducer, { output: "" });
+  const [state, dispatch] = useReducer(reducer, { output: "0" });
   const [isOperatorInserted, setIsOperatorInserted] = useState<boolean>(false);
   const [actualOperator, setActualOperator] = useState<string>("");
   const [isDotInserted, setIsDotInserted] = useState<boolean>(false);
@@ -135,14 +135,14 @@ export function App() {
   }
 
   return (
-    <main>
-      <article>
-        <header>
+    <main className={styles.main}>
+      <article className={styles.article}>
+        <header className={styles.header}>
           <h1>calc</h1>
           <span>THEME</span>
         </header>
 
-        <output>{state.output}</output>
+        <output className={styles.output}>{state.output}</output>
 
         <div className={styles.operatorsContainer}>
           <button className={styles.zero} onClick={handleNumberClicked} value={0}>0</button>
