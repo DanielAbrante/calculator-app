@@ -34,7 +34,10 @@ export function App() {
   const handleOperator = (event: React.MouseEvent<HTMLButtonElement>) => {
     const value = event.currentTarget.value;
 
-    if (state.output.length === 0) return;
+    if (state.output.length === 0) {
+      if (value === "sum" || value === "division" || value === "multiplication") return;
+    }
+
     if (isOperatorInserted) return;
 
     setIsOperatorInserted(true);
@@ -79,7 +82,7 @@ export function App() {
           <span>THEME</span>
         </header>
 
-        <output className={styles.output}>{state.output}</output>
+        <output data-testid="output" className={styles.output}>{state.output}</output>
 
         <div className={styles.operatorsContainer}>
           <button onClick={handleNumber} className={styles.zero} value={0}>0</button>
