@@ -103,8 +103,6 @@ export function App() {
           <span>THEME</span>
         </header>
 
-        <p>{operatorsQuantity}</p>
-
         <output data-testid="output" className={styles.output}>{state.output}</output>
 
         <div className={styles.operatorsContainer}>
