@@ -71,10 +71,12 @@ export const calculatorReducer = (prevState: any, action: any) => {
         ...prevState, output: prevState.output.concat(newOutput)
       }
     case "operator_digit":
-      const symbol = Object.entries(operators).find(item => item[0] == action.payload)[1];
+      const symbol = Object.entries(operators).find(item => item[0] == action.payload);
+
+      const firstSymbol = symbol![0];
 
       return {
-        ...prevState, output: prevState.output.concat(symbol)
+        ...prevState, output: prevState.output.concat(firstSymbol)
       }
     default:
       break;
