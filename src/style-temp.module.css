@@ -1,0 +1,44 @@
+:root {
+
+  /* Theme 02 */
+  /* Background */
+  --main-background: hsl(0, 0%, 90%);
+  --toggle-background: hsl(0, 5%, 81%);
+  --screen-background: hsl(0, 0%, 93%);
+
+  /* Keys */
+  --cyan-key-background: hsl(185, 42%, 37%);
+  --dark-cyan-key-shadow: hsl(185, 58%, 25%);
+
+  --orange-key-background-toggle: hsl(25, 98%, 40%);
+  --dark-orange-key-shadow: hsl(25, 99%, 27%);
+
+  --light-grayish-yellow-key-background: hsl(45, 7%, 89%);
+  --dark-grayish-yellow-key-shadow: hsl(35, 11%, 61%);
+
+  /* Text  */
+  --very-dark-grayish-yellow: hsl(60, 10%, 19%);
+  --white: hsl(0, 0%, 100%);
+
+
+
+  /* Theme 03 */
+  /* Background */
+  --main-background: hsl(268, 75%, 9%);
+  --toggle-and-screen-background: hsl(268, 71%, 12%);
+
+  /* Keys */
+  --violet-key-background: hsl(281, 89%, 26%);
+  --vivid-magenta-key-shadow: hsl(285, 91%, 52%);
+
+  --pure-cyan-background-toggle: hsl(176, 100%, 44%);
+  --soft-cyan-orange-key-shadow: hsl(177, 92%, 70%);
+
+  --dark-violet-key-background: hsl(268, 47%, 21%);
+  --dark-magenta-key-shadow: hsl(290, 70%, 36%);
+
+  /* Text  */
+  --light-yellow: hsl(52, 100%, 62%);
+  --dark-blue: hsl(198, 20%, 13%);
+  --white: hsl(0, 0%, 100%);
+}

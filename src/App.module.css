@@ -1,12 +1,88 @@
 @import url("./Global.module.css");
 @import url("./StyleGuide.module.css");
 
+h1,
+span {
+  color: var(--white);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+output {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  color: var(--white);
+  background: var(--screen-background);
+  font-size: 2.25rem;
+
+  height: 5rem;
+  border-radius: 8px;
+  padding-right: 1rem;
+}
+
 button {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 button:hover {
   cursor: pointer;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+.rightHeaderContainer {
+  display: flex;
+  align-items: end;
+  gap: 2rem;
+}
+
+.rightHeaderContainer>span {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.containerToggleTheme {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.containerToggleThemeType,
+.containerToggleThemeButtons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.containerToggleThemeType span {
+  font-size: 0.75rem;
+}
+
+.containerToggleThemeButtons div {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--toggle-background);
+}
+
+.containerToggleThemeButtons div:hover {
+  cursor: pointer;
+}
+
+.containerToggleThemeButtons div:first-child {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.containerToggleThemeButtons div:last-child {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 .main {
@@ -30,24 +106,46 @@ button:hover {
   justify-content: space-between;
 }
 
-.output {
-  background: var(--screen-background-2);
-  color: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: right;
-}
-
 .operatorsContainer {
   display: grid;
   grid-template-columns: repeat(4, 4rem);
   grid-template-rows: repeat(5, 4rem);
-  gap: 0.5rem;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+
+  background: var(--toggle-background);
+}
+
+.operatorsContainer>button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-grayish-orange-key-background);
+  border: none;
+  border-radius: 8px;
+  padding-top: 4px;
+  box-shadow: 0px 4px var(--grayish-orange-key-shadow);
+  color: var(--toggle-background);
+}
+
+.operatorsContainer>.del,
+.operatorsContainer>.reset,
+.operatorsContainer>.calculate {
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.operatorsContainer>.del,
+.operatorsContainer>.reset {
+  background: var(--dark-blue-key-background);
+  box-shadow: 0px 4px var(--dark-blue-key-shadow) !important;
 }
 
 .del {
   grid-row: 1 / 2;
   grid-column: 4 / 5;
+  background-color: red;
 }
 
 .dot {
@@ -82,6 +180,8 @@ button:hover {
   grid-column: 1 / 3;
 }
 
-.calculate {
+.operatorsContainer>.calculate {
   grid-column: 3 / 5;
+  background: var(--red-key-background-toggle);
+  box-shadow: 0px 4px var(--dark-red-key-shadow);
 }

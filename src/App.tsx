@@ -100,10 +100,24 @@ export function App() {
       <article className={styles.article}>
         <header className={styles.header}>
           <h1>calc</h1>
-          <span>THEME</span>
+          <div className={styles.rightHeaderContainer}>
+            <span>THEME</span>
+            <div className={styles.containerToggleTheme}>
+              <div className={styles.containerToggleThemeType}>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+              </div>
+              <div className={styles.containerToggleThemeButtons}>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
         </header>
 
-        <output data-testid="output" className={styles.output}>{state.output}</output>
+        <output data-testid="output">{state.output}</output>
 
         <div className={styles.operatorsContainer}>
           <button onClick={handleNumber} className={styles.zero} value={0}>0</button>
