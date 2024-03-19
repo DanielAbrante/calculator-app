@@ -64,10 +64,23 @@ export function App() {
   }
 
   const handleReset = () => {
+    setOperatorsQuantity(0);
+
     dispatch({ type: "reset" })
   }
 
   const handleDel = () => {
+    const actualDigit = state.output[state.output.length - 1];
+    const previousValue = state.output[state.output.length - 2];
+
+    const operatorValues = Object.values(operators);
+
+    for (const operatorValue of operatorValues) {
+      if (actualDigit === operatorValue) setOperatorsQuantity(operatorsQuantity - 1);
+      if (actualDigit !== operatorValue && previousValue === operatorValue) setOperatorsQuantity(operatorsQuantity - 1);
+
+    }
+
     dispatch({ type: "del" })
   }
 
@@ -89,6 +102,8 @@ export function App() {
           <h1>calc</h1>
           <span>THEME</span>
         </header>
+
+        <p>{operatorsQuantity}</p>
 
         <output data-testid="output" className={styles.output}>{state.output}</output>
 
