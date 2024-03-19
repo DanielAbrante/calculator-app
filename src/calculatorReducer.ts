@@ -63,7 +63,7 @@ export const calculatorReducer = (prevState: any, action: any) => {
       }
     case "dot":
       return {
-        ...prevState, output: prevState.output.concat(".")
+        ...prevState, output: prevState.output.concat(",")
       }
     case "numeric_digit":
       newOutput = action.payload;
