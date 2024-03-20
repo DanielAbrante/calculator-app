@@ -187,3 +187,10 @@ header {
   background: var(--red-key-background-toggle);
   box-shadow: 0px 4px var(--dark-red-key-shadow);
 }
+
+@media (min-width: 768px) {
+  .operatorsContainer>button {
+    padding: 8px 12px 0px;
+
+  }
+}
