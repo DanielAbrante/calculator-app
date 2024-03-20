@@ -1,5 +1,5 @@
 import styles from "./App.module.css";
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { calculatorReducer, initialState } from "./calculatorReducer";
 import { IOperators } from "./types/global";
 
@@ -14,6 +14,8 @@ export function App() {
   const [state, dispatch] = useReducer(calculatorReducer, initialState);
   const [actualOperator, setActualOperator] = useState<string>("");
   const [operatorsQuantity, setOperatorsQuantity] = useState<number>(0);
+  const [theme, setTheme] = useState<string>("theme01");
+  const [toggleId, setToggleID] = useState<string>("01")
 
   const handleNumber = (event: React.MouseEvent<HTMLButtonElement>) => {
     const value = event.currentTarget.value;
@@ -95,6 +97,27 @@ export function App() {
     dispatch({ type: actualOperator })
   }
 
+  const changeTheme = (event: React.MouseEvent<HTMLDivElement>, newTheme: string) => {
+    const actualElement = event.currentTarget
+
+    document.getElementById(toggleId)!.className = styles.toggleCircle
+
+    setToggleID(actualElement.id);
+    setTheme(newTheme);
+
+    actualElement.className = `${styles.toggleCircle} ${styles.isActive}`;
+
+    document.body.className = styles[theme]
+  }
+
+  useEffect(() => {
+    function setDefaultTheme() {
+      document.body.className = styles[theme];
+    }
+
+    setDefaultTheme();
+  })
+
   return (
     <main className={styles.main}>
       <article className={styles.article}>
@@ -109,9 +132,15 @@ export function App() {
                 <span>3</span>
               </div>
               <div className={styles.containerToggleThemeButtons}>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div>
+                  <div id="01" onClick={(e) => changeTheme(e, "theme01")} className={`${styles.toggleCircle} ${styles.isActive}`}></div>
+                </div>
+                <div>
+                  <div id="02" onClick={(e) => changeTheme(e, "theme02")} className={`${styles.toggleCircle}`}></div>
+                </div>
+                <div>
+                  <div id="03" onClick={(e) => changeTheme(e, "theme03")} className={`${styles.toggleCircle}`}></div>
+                </div>
               </div>
             </div>
           </div>

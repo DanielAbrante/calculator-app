@@ -1,0 +1,65 @@
+:root {
+  /* Theme 01 */
+  /* Background */
+  --theme-01-main-background: hsl(222, 26%, 31%);
+  --theme-01-toggle-background: hsl(223, 31%, 20%);
+  --theme-01-screen-background: hsl(224, 36%, 15%);
+
+  /* Keys */
+  --theme-01-dark-blue-key-background: hsl(225, 21%, 49%);
+  --theme-01-dark-blue-key-shadow: hsl(224, 28%, 35%);
+
+  --theme-01-red-key-background-toggle: hsl(6, 63%, 50%);
+  --theme-01-dark-red-key-shadow: hsl(6, 70%, 34%);
+
+  --theme-01-light-grayish-orange-key-background: hsl(30, 25%, 89%);
+  --theme-01-grayish-orange-key-shadow: hsl(28, 16%, 65%);
+
+  /* Text  */
+  --theme-01-very-dark-grayish-blue: hsl(221, 14%, 31%);
+  --theme-01-white: hsl(0, 0%, 100%);
+
+
+  
+  /* Theme 02 */
+  /* Background */
+  --theme-02-main-background: hsl(0, 0%, 90%);
+  --theme-02-toggle-background: hsl(0, 5%, 81%);
+  --theme-02-screen-background: hsl(0, 0%, 93%);
+
+  /* Keys */
+  --theme-02-cyan-key-background: hsl(185, 42%, 37%);
+  --theme-02-dark-cyan-key-shadow: hsl(185, 58%, 25%);
+
+  --theme-02-orange-key-background-toggle: hsl(25, 98%, 40%);
+  --theme-02-dark-orange-key-shadow: hsl(25, 99%, 27%);
+
+  --theme-02-light-grayish-yellow-key-background: hsl(45, 7%, 89%);
+  --theme-02-dark-grayish-yellow-key-shadow: hsl(35, 11%, 61%);
+
+  /* Text  */
+  --theme-02-very-dark-grayish-yellow: hsl(60, 10%, 19%);
+  --theme-02-white: hsl(0, 0%, 100%);
+
+
+
+  /* Theme 03 */
+  /* Background */
+  --theme-03-main-background: hsl(268, 75%, 9%);
+  --theme-03-toggle-and-screen-background: hsl(268, 71%, 12%);
+
+  /* Keys */
+  --theme-03-violet-key-background: hsl(281, 89%, 26%);
+  --theme-03-vivid-magenta-key-shadow: hsl(285, 91%, 52%);
+
+  --theme-03-pure-cyan-background-toggle: hsl(176, 100%, 44%);
+  --theme-03-soft-cyan-orange-key-shadow: hsl(177, 92%, 70%);
+
+  --theme-03-dark-violet-key-background: hsl(268, 47%, 21%);
+  --theme-03-dark-magenta-key-shadow: hsl(290, 70%, 36%);
+
+  /* Text  */
+  --theme-03-light-yellow: hsl(52, 100%, 62%);
+  --theme-03-dark-blue: hsl(198, 20%, 13%);
+  --theme-03-white: hsl(0, 0%, 100%);
+}
