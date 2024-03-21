@@ -127,10 +127,20 @@ header {
   padding: 16px 0 12px 0;
 }
 
+.operatorsContainer button:hover {
+  filter: brightness(1.2);
+}
+
 .operatorsContainer>.del,
 .operatorsContainer>.reset,
 .operatorsContainer>.calculate {
   font-size: 1.25rem;
+}
+
+.operatorsContainer>.del:hover,
+.operatorsContainer>.reset:hover,
+.operatorsContainer>.calculate:hover {
+  filter: brightness(1.5);
 }
 
 .del {
