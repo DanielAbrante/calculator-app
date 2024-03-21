@@ -204,6 +204,10 @@ header {
 }
 
 .theme01 .isActive {
+  background: var(--theme-01-dark-red-key-shadow);
+}
+
+.theme01 .isActive:hover {
   background: var(--theme-01-red-key-background-toggle);
 }
 
@@ -257,6 +261,10 @@ header {
 }
 
 .theme02 .isActive {
+  background: var(--theme-02-dark-orange-key-shadow);
+}
+
+.theme02 .isActive:hover {
   background: var(--theme-02-orange-key-background-toggle);
 }
 
