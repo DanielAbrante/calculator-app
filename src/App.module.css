@@ -86,10 +86,6 @@ header {
   height: 0.90rem;
 }
 
-.isActive {
-  background-color: red;
-}
-
 .main {
   margin: 0 auto;
   padding: 2rem;
@@ -197,6 +193,10 @@ header {
   background: var(--theme-01-toggle-background);
 }
 
+.theme01 .isActive {
+  background: var(--theme-01-red-key-background-toggle);
+}
+
 .theme01 .main {
   background: var(--theme-01-main-background);
 }
@@ -244,6 +244,10 @@ header {
 
 .theme02 .containerToggleThemeButtons>div {
   background: var(--theme-02-toggle-background);
+}
+
+.theme02 .isActive {
+  background: var(--theme-02-orange-key-background-toggle);
 }
 
 .theme02 .main {
