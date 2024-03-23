@@ -137,12 +137,6 @@ header {
   font-size: 1.25rem;
 }
 
-.operatorsContainer>.del:hover,
-.operatorsContainer>.reset:hover,
-.operatorsContainer>.calculate:hover {
-  filter: brightness(1.5);
-}
-
 .del {
   grid-row: 1 / 2;
   grid-column: 4 / 5;
@@ -297,6 +291,76 @@ header {
 .theme02 .operatorsContainer>.calculate {
   background: var(--theme-02-orange-key-background-toggle);
   box-shadow: 0px 4px var(--theme-02-dark-orange-key-shadow);
+}
+
+/* Theme 03 */
+.theme03 h1 {
+  color: var(--theme-03-light-yellow);
+}
+
+.theme03 span {
+  color: var(--theme-03-light-yellow);
+}
+
+.theme03 output {
+  color: var(--theme-03-light-yellow);
+  background: var(--theme-03-toggle-and-screen-background);
+}
+
+.theme03 .containerToggleThemeButtons>div {
+  background: var(--theme-03-toggle-and-screen-background);
+}
+
+.theme03 .isActive {
+  background: var(--theme-03-pure-cyan-background-toggle);
+}
+
+.theme03 .isActive:hover {
+  background: var(--theme-03-soft-cyan-orange-key-shadow);
+}
+
+.theme03 .main {
+  background: var(--theme-03-main-background);
+}
+
+.theme03 .operatorsContainer {
+  background: var(--theme-03-toggle-and-screen-background);
+}
+
+.theme03 .operatorsContainer button {
+  background: var(--theme-03-dark-violet-key-background);
+  box-shadow: 0px 4px var(--theme-03-dark-magenta-key-shadow);
+  color: var(--theme-03-light-yellow);
+}
+
+.theme03 .operatorsContainer button:hover {
+  background: var(--theme-03-violet-key-background);
+}
+
+.theme03 .operatorsContainer>.del,
+.theme03 .operatorsContainer>.reset {
+  color: var(--theme-02-white);
+}
+
+.theme03 .operatorsContainer>.del,
+.theme03 .operatorsContainer>.reset {
+  background: var(--theme-03-dark-magenta-key-shadow);
+  box-shadow: 0px 4px var(--theme-03-vivid-magenta-key-shadow) !important;
+}
+
+.theme03 .operatorsContainer>.del:hover,
+.theme03 .operatorsContainer>.reset:hover {
+  background: var(--theme-03-dark-magenta-key-shadow);
+}
+
+.theme03 .operatorsContainer>.calculate {
+  background: var(--theme-03-pure-cyan-background-toggle);
+  box-shadow: 0px 4px var(--theme-03-soft-cyan-orange-key-shadow);
+  color: var(--theme-03-dark-blue);
+}
+
+.theme03 .operatorsContainer>.calculate:hover {
+  background: var(--theme-03-pure-cyan-background-toggle);
 }
 
 @media (min-width: 768px) {
